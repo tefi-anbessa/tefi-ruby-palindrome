@@ -1,8 +1,21 @@
 require "tefi/palindrome/version"
+class String
 
-module Tefi
-  module Palindrome
-    class Error < StandardError; end
-    # Your code goes here...
+  # Returns true for a palindrome, false otherwise.
+  def palindrome?
+    processed_content == processed_content.reverse
   end
+
+  private
+
+    # Returns content for palindrome testing.
+    def processed_content
+      scan(/[a-z]/i).join.downcase
+    end
 end
+# module Tefi
+#   module Palindrome
+#     class Error < StandardError; end
+#     # Your code goes here...
+#   end
+# end
